@@ -30,6 +30,9 @@ var FishApp = React.createClass({
       fishArray: null
     }
   },
+  submitFishToServer: function(fishData) {
+    console.log("fish data in fish app", fishData)
+  },
   loadAllFishFromServer: function() {
     //GO GET ALL FISH FROM SERVER
     var self = this;
@@ -51,7 +54,7 @@ var FishApp = React.createClass({
       return (
         <div>
           <Jumbotron />
-          <FishBox fishArray={ this.state.fishArray } />
+          <FishBox submitFishToServer={ this.submitFishToServer } fishArray={ this.state.fishArray } />
         </div>
         )
     } else {

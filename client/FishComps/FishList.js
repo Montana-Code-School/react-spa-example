@@ -14,6 +14,7 @@ var FishList = React.createClass({
           img={ item.img } />
         );
     })
+    
     return (
       <div className="fish-flex">
         { allFish }

@@ -28,8 +28,18 @@ var FishForm = React.createClass({
   },
   handleFormSubmit: function(e) {
     e.preventDefault();
-    var data = {};
-    console.log("the name of the fish is: ", this.state.fishName);
+
+    var fishData = {
+      name: this.state.fishName.trim(),
+      color: this.state.color.trim(),
+      length: this.state.length.trim(),
+      img: this.state.img.trim(),
+      people_eater: this.state.peopleEater
+    };
+
+    this.props.submitFishToServer(fishData);
+
+    this.setState({name: '', color: '', length: '', img: ''})
   },
   render: function() {
     return (
@@ -61,6 +71,7 @@ var FishForm = React.createClass({
             <option value={ false }>no</option>
           </select>
         </fieldset>
+
         <button className="btn btn-success-outline" type="submit"> Submit </button>
       </form>
       </div>
