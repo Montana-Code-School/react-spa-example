@@ -11,15 +11,14 @@ var Toggler = React.createClass({
   render: function() {
     return (
       <div className="container">
-        <div className="btn-group" data-toggle="buttons">
-            <button onClick={this.props.toggleActiveComp.bind(null, 'fish')}> Fish Display </button>
-            <button onClick={this.props.toggleActiveComp.bind(null, 'form')}> Modify Fish </button>
+        <div data-toggle="buttons">
+            <button className="btn btn-primary-outline my-btn" onClick={ this.props.toggleActiveComp.bind(null, 'fish') }> Fish Display </button>
+            <button className="btn btn-primary-outline my-btn" onClick={ this.props.toggleActiveComp.bind(null, 'form') }> Modify Fish </button>
         </div>
       </div>
       )
   }
 });
-
 
 var FishBox = React.createClass({
   getInitialState: function() {
