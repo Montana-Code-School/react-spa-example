@@ -13,7 +13,6 @@ var Jumbotron = React.createClass({
   }
 });
 
-
 var Loader = React.createClass({
   render: function(){
     return (
@@ -24,7 +23,7 @@ var Loader = React.createClass({
   }
 });
 
-var FishApp = React.createClass({
+var FishData = React.createClass({
   getInitialState: function() {
     return {
       fishArray: null
@@ -46,18 +45,6 @@ var FishApp = React.createClass({
   componentDidMount: function() {
     this.loadAllFishFromServer();
   },
-  render: function() {
-    if(this.state.fishArray) {
-      return (
-        <div>
-          <Jumbotron />
-          <FishBox fishArray={ this.state.fishArray } />
-        </div>
-        )
-    } else {
-      return <Loader/>
-    }
-  }
 });
 
 module.exports = FishApp;

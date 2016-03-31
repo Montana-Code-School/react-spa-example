@@ -24,7 +24,8 @@ var Toggler = React.createClass({
 var FishBox = React.createClass({
   getInitialState: function() {
     return {
-      activeComponent: 'fish'
+      activeComponent: 'fish',
+      fishArray: null
       }
   },
   showComp: function() {
@@ -41,14 +42,40 @@ var FishBox = React.createClass({
   toggleActiveComp: function(name) {
     this.setState({activeComponent: name})
   },
+  loadAllFishFromServer: function() {
+    //GO GET ALL FISH FROM SERVER
+    var self = this;
+    $.ajax({
+      url: '/api/fish' ,
+      method: 'GET'
+    }).done(function(data){
+      //UPDATE FISH STATE WITH DATA
+      setTimeout(function(){
+        self.setState({fishArray: data})
+      }, 1000);
+    })
+  },
+  componentDidMount: function() {
+    this.loadAllFishFromServer();
+  },
   render: function() {
     return (
       <div className="container myContainer">
         <Toggler toggleActiveComp={ this.toggleActiveComp }/>
-        { this.showComp() }
-      </div>     
-      )
-  }
+          if(this.state.fishArray) {
+              return (
+                <div>
+                  <Jumbotron />
+                  <FishBox fishArray={ this.state.fishArray } />
+                </div>
+                )
+            } else {
+              return <Loader/>
+            }
+                { this.showComp() }
+              </div>     
+              )
+          }
 });
 
 module.exports = FishBox;
