@@ -1,6 +1,6 @@
 var React = require('react');
 
-var FishForm = require('./FishForm');
+var FishFormData = require('./FishFormData');
 var FishListData = require('./FishListData');
 
 var Toggler = React.createClass({
@@ -31,7 +31,7 @@ var FishBox = React.createClass({
     if(this.state.activeComponent === 'fish'){
       return <FishListData/>
     } else if (this.state.activeComponent === 'form') {
-      return <FishForm submitFishToServer={ this.props.submitFishToServer }/>
+      return <FishFormData />
     } else {
       throw new Error("Invalid activeComponent ", this.state.activeComponent)
     }
