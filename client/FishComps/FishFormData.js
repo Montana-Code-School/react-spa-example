@@ -11,6 +11,9 @@ var FishFormData = React.createClass({
       length: null,
     }
   },
+  contextTypes: {
+    sendNotification: React.PropTypes.func.isRequired
+  },
   onNameChange: function(event){
     this.setState({ fishName: event.target.value })
   },
@@ -37,7 +40,7 @@ var FishFormData = React.createClass({
       img: this.state.img.trim(),
       people_eater: this.state.peopleEater
     };
-    
+
     var self = this;
     $.ajax({
       url: '/api/fish',
@@ -46,6 +49,7 @@ var FishFormData = React.createClass({
     }).done(function(data){
       console.log("Inside POST fish success", data);
       self.props.toggleActiveComp('fish');
+      self.context.sendNotification("Added Fish!!!!!!!!!!!!!");
     });
 
     this.setState({name: '', color: '', length: '', img: ''});
