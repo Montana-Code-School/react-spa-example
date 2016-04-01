@@ -23,7 +23,7 @@ var FishListData = React.createClass({
 
   render() {
     return this.state.allFish ? <FishList fishArray={this.state.allFish} getId={ this.props.getId }/> : <Loader/>;
-  },
+  }
 });
 
 module.exports = FishListData;
