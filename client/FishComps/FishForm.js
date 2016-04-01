@@ -43,7 +43,7 @@ var FishForm = React.createClass({
   },
   render: function() {
     return (
-      <div>
+      <div className="container myContainer">
       <form onSubmit={ this.handleFormSubmit }>
         <h3> Enter New Fish </h3>
         <fieldset className="form-group">
@@ -66,7 +66,7 @@ var FishForm = React.createClass({
         <fieldset className="form-group">
           <label htmlFor="exampleSelect1">Man Eater?</label>
           <select onChange={ this.peopleEaterChange } className="form-control">
-            <option>-</option>
+            <option>select something</option>
             <option value={ true }>yes</option>
             <option value={ false }>no</option>
           </select>

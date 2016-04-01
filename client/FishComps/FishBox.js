@@ -9,10 +9,10 @@ var Toggler = React.createClass({
       <div className="container">
         <div data-toggle="buttons">
             <button className="btn btn-primary-outline my-btn"
-              onClick={() => this.props.toggleActiveComp('fish')}> Fish Display </button>
+              onClick={() => this.props.toggleActiveComp('fish')}> Fish </button>
 
             <button className="btn btn-primary-outline my-btn"
-              onClick={() => this.props.toggleActiveComp('form')}> Modify Fish </button>
+              onClick={() => this.props.toggleActiveComp('form')}> New Fish </button>
         </div>
       </div>
       )
@@ -41,7 +41,7 @@ var FishBox = React.createClass({
   },
   render: function() {
     return (
-        <div>
+        <div className="">
           <Toggler toggleActiveComp={this.toggleActiveComp}/>
           { this.showComp() }
         </div>

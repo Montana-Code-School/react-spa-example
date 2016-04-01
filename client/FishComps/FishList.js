@@ -5,7 +5,8 @@ function FishList(props){
     //MAP THROUGH OUR DATA AND PASS IT TO FISH CARD;
     var allFish = props.fishArray.map(item =>{
       return (
-        <FishCard 
+        <FishCard
+          key={item._id} 
           name={ item.name } 
           color={ item.color }
           people_eater={ item.people_eater }
@@ -15,7 +16,7 @@ function FishList(props){
     });
     
     return (
-      <div className="fish-flex">
+      <div className="container myContainer fish-flex">
         { allFish }
       </div>
       )
