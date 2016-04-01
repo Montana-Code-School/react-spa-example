@@ -7,11 +7,10 @@ function FishCard(props){
         src={ props.img } alt="some fish"/>
         <div className="card-block card-flex">
           <h4 className="card-title">{ props.name }</h4>
-          <a href="#" className="btn btn-primary">GO</a>
+          <button onClick={ props.getId.bind(null, props.id) } className="btn btn-primary">GO</button>
         </div>
       </div>
       )
-
 };
 
 module.exports = FishCard;

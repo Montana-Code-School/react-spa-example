@@ -27,8 +27,9 @@ var FishFormData = React.createClass({
     console.log(event.target.value);
     this.setState({ peopleEater: event.target.value })
   },
-  submitFishToServer: function() {
-    
+  submitFishToServer: function(e) {
+    e.preventDefault();
+
     var fishData = {
       name: this.state.fishName.trim(),
       color: this.state.color.trim(),
@@ -36,6 +37,7 @@ var FishFormData = React.createClass({
       img: this.state.img.trim(),
       people_eater: this.state.peopleEater
     };
+    
     var self = this;
     $.ajax({
       url: '/api/fish',
@@ -43,6 +45,7 @@ var FishFormData = React.createClass({
       data: fishData
     }).done(function(data){
       console.log("Inside POST fish success", data);
+      self.props.toggleActiveComp('fish');
     });
 
     this.setState({name: '', color: '', length: '', img: ''});
@@ -51,11 +54,6 @@ var FishFormData = React.createClass({
     return (
         <FishForm
           submitFishToServer={ this.submitFishToServer }
-          fishName={ this.state.fishName }
-          peopleEater={ this.state.peopleEater }
-          color={ this.state.color }
-          img={ this.state.img }
-          length={ this.state.length }
           onNameChange={ this.onNameChange }
           onColorChange={ this.onColorChange }
           onImgChange={this.onImgChange}
