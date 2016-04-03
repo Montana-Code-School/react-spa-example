@@ -1,6 +1,6 @@
 var React = require('react');
 
-var links = ['welcome', 'cookies', 'fish', 'bears', 'beer'];
+var links = ['welcome', 'cookies', 'fish', 'bears', 'beer', 'sass'];
 
 var NavBar = React.createClass({
   render: function() {

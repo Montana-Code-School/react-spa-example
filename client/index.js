@@ -7,6 +7,7 @@ var Cookies = require('./Cookies');
 var Bears = require('./Bears');
 var FishApp = require('./FishApp');
 var Beers = require('./Beer');
+var FunWithSass = require('./FunWithSass');
 var Notifier = require('./Notifier');
 
 require('./stylesheets/main.scss');
@@ -39,6 +40,9 @@ var App = React.createClass({
             break;
         case 'cookies':
             return <Cookies/>
+            break;
+        case 'sass':
+            return <FunWithSass/>
             break;
         default:
             return <Welcome/>
