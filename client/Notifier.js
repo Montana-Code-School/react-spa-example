@@ -32,9 +32,8 @@ var Notifier = React.createClass({
         <Snackbar
           open={this.state.open}
           message={this.state.message}
-          autoHideDuration={4000}
+          autoHideDuration={5000}
           onRequestClose={this.handleRequestClose} />
-      }
       </div>
       )
   }

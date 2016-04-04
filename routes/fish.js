@@ -50,6 +50,38 @@ router.route('/one_fish/:fish_id')
         res.json(fish);
       }
     })
+  })
+  .put(function(req, res){
+    Fish.findById( req.params.fish_id, function(err, fish) {
+      if(err) {
+        res.status(500).send(err, 'Something broke!');
+      } else {
+
+        fish.name = req.body.name ? req.body.name : fish.name;
+        fish.color = req.body.color ? req.body.color : fish.color;
+        fish.length = req.body.length ? req.body.length : fish.length;
+        fish.people_eater = req.body.people_eater ? req.body.people_eater : fish.people_eater;
+        fish.img = req.body.img ? req.body.img : fish.img;
+
+        fish.save(function(err){
+          if(err){
+            res.status(500).send(err, 'Something broke!');
+          } else {
+            res.json(fish)
+          }
+        })
+      }
+    })
+  })
+  .delete(function(req, res){
+    // { }  <--- query parameter, can pass in anything you want..
+    Fish.remove({ _id: req.params.fish_id }, function(err, fish){
+      if(err){
+        res.status(500).send(err, 'Something broke!');
+      } else {
+        res.json({message: "FISH DELETED"})
+      }
+    })
   });
 
 // /api/fish/man_eater
