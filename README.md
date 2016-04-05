@@ -1,4 +1,7 @@
 Pure React Single Page App
+
+
+![alt text](https://www.igfa.org/Images/SpeciesID_Images/sailfish_Pacific.png "Logo Title Text 1")
 ================================
 1. `git clone`
 2. `npm install`
@@ -27,7 +30,6 @@ Awesome Features:
 ___
 
 
-![alt text](https://www.igfa.org/Images/SpeciesID_Images/sailfish_Pacific.png "Logo Title Text 1")
 
 
 
