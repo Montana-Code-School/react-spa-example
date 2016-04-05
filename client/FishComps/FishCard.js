@@ -7,8 +7,9 @@ function FishCard(props){
         src={ props.img } alt="some fish"/>
         <div className="card-block card-flex">
           <h4 className="card-title">{ props.name }</h4>
-          <button onClick={ props.getId.bind(null, props.id) } className="btn btn-primary">GO</button>
-          <button onClick={ props.deleteFish.bind(null, props.id) } className="btn btn-primary">Delete</button>
+          <button onClick={ props.getId.bind(null, 'showOne', props.id) } className="btn btn-success">GO</button>
+          <button onClick={ props.getId.bind(null, 'BLAHHH', props.id) } className="btn btn-primary">Edit</button>
+          <button onClick={ props.deleteFish.bind(null, props.id) } className="btn btn-warning">Delete</button>
         </div>
       </div>
       )
