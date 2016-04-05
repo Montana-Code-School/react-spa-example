@@ -8,7 +8,7 @@ function EditFishForm(props) {
         <h3> Enter New Fish </h3>
         <fieldset className="form-group">
           <label>name</label>
-          <input ref={ (input) => nameInput = input } onChange={ () => props.onFieldChange('name', nameInput.value ) } value={props.name} type="text" className="form-control"/>
+          <input onChange={ (event) => props.onFieldChange('name', event.target.value ) } value={props.name} type="text" className="form-control"/>
         </fieldset>
         <fieldset className="form-group">
           <label>color</label>
