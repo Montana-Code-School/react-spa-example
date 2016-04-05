@@ -15,6 +15,10 @@ var EditFishData = React.createClass({
     }
   },
 
+  contextTypes: {
+    sendNotification: React.PropTypes.func.isRequired
+  },
+
   /* 2) LOAD A FISH FROM SERVER --> SET STATE */
   loadOneFishFromServer: function() {
     var self = this;
@@ -40,6 +44,7 @@ var EditFishData = React.createClass({
 
   onNameChange: function(event){
     this.setState({ name: event.target.value })
+    console.log(this.state.name);
   },
   onColorChange: function(event){
     this.setState({ color: event.target.value })
@@ -51,17 +56,41 @@ var EditFishData = React.createClass({
     this.setState({ length: event.target.value })
   },
   peopleEaterChange: function(event){
-    this.setState({ peopleEater: event.target.value })
+    console.log("Found PE change", event.target.value)
+    this.setState({ people_eater : event.target.value })
   },
 
   componentDidMount: function() {
     this.loadOneFishFromServer()
+  },
+  onFishEditSubmit: function(e) {
+    e.preventDefault();
+
+    var fishData = {
+      name: this.state.name.trim(),
+      color: this.state.color.trim(),
+      length: this.state.length.trim(),
+      img: this.state.img.trim(),
+      people_eater: this.state.people_eater
+    };
+
+    var self = this;
+    $.ajax({
+      url: '/api/fish/one_fish/' + this.props.id,
+      method: 'PUT',
+      data: fishData
+    }).done(function(data){
+      console.log("Successfully edited fish", data);
+      self.props.toggleActiveComp('fish');
+      self.context.sendNotification("Modified Fish!!!!!!!!!!!!!");
+    });
   },
 
   /* 3)PASS FISH DATA TO EDIT_FISH_FORM */
 
   render: function() {
     return this.state.name ? <EditFishForm
+                                onFishEditSubmit={this.onFishEditSubmit}
                                 onFieldChange={(...args) => this.onFieldChange(...args)} 
                                 peopleEaterChange={this.peopleEaterChange} 
                                 onLengthChange={this.onLengthChange} 
