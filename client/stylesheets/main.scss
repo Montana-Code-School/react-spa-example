@@ -1,10 +1,4 @@
-@import 'config';
-
-body {
-  font: 100% $main-font-stack;
-  background: $primary-color;
-}
-
-.myContainer {
-  margin-bottom: 10%
-}
+@import 'base';
+@import 'fish';
+@import 'cookies';
+@import 'layout';

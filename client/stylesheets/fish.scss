@@ -1,9 +1,4 @@
-@import 'config';
-$fish-font-stack: 'Oswald', sans-serif;
-
-h4 {
-  font-family: $fish-font-stack;
-}
+@import 'base';
 
 .my-btn {
   margin: 5px;

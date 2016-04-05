@@ -1,12 +1,9 @@
-Optimal Webpack for Node & React
+SPA Example using pure React
 ================================
 ================================
+Fish Comp is built out.
 
-Configured For:
-  SaSS Loader
-  React Hot Model Loader (using express server)
-  Babel 5 (because goodluck upgrading react transform to use babel 6)
-
-Tips:
-  When doing server dev, simply start server with nodemon.
-  When doing client dev, npm run build && npm run start
+npm install
+npm run go
+You will need to add some fish yourself..
+credit to this site for being awesome: https://www.igfa.org/fish/fish-database.aspx

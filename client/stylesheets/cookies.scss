@@ -1,0 +1,83 @@
+
+/*REGULAR CSS BUTTON
+*/
+/*.cookie-button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #d9534f;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 1px solid #d9534f;
+    transition: all 0.3s ease-in-out;
+    
+    &:hover {
+        background-color: #d9534f;
+        color: #fcfcfc;
+    }
+}*/
+
+
+/*SET BUTTON NUMBERS TO VARS
+*/
+$button-padding: 0.5rem 1rem;
+$font-size: 12px;             
+$button-bgcolor: #d9534f;     
+$button-border-width: 1px;    
+$button-color-hover: #fcfcfc;
+$color-light: white;
+
+
+.cookie-button {
+    display: inline-block;
+    padding: $button-padding;
+    font-size: $font-size;
+    font-weight: bold;
+    color: #d9534f;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: $button-border-width solid #d9534f;
+    transition: all 0.3s ease-in-out;
+    
+    &:hover {
+        background-color: $button-bgcolor;
+        color: $button-color-hover;
+    }
+}
+
+
+@mixin my-button-theme($color, $hover-color) {
+    color: $color;
+    border-color: $color;
+    background-color: transparent;
+    
+    &:hover {
+        color: $hover-color;
+        background-color: $color;
+    }
+}
+
+.last-cookie-button {
+    @include my-button-theme(white, blue)
+}
+
+.third-cookie-button {
+    @include my-button-theme(purple, red)
+}
+
+.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  @extend .message;
+  border-color: green;
+}
+
+.error {
+  @extend .message;
+  border-color: red;
+}
