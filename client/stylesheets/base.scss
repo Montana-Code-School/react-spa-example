@@ -9,9 +9,6 @@ $main-colors: (
   'background': #e9e9e9
 );
 
-@function get-color($key) {
-  @return map-get($main-colors, $key);
-};
 
 $new-primary-color: get-color('primary');
 $new-bg-color: get-color('accent');

@@ -1,0 +1,55 @@
+@import 'colors';
+
+$button-padding: .5em 1em;
+
+@mixin standard-button {
+    display: inline-block;
+    padding: $button-padding;
+    font-size: 12px;
+    font-weight: bold;
+    color: $primary-lighten;
+    text-transform: uppercase;
+    background-color: $primary-darken;
+    border: 1px solid #d9534f;
+    transition: all 0.3s ease-in-out;
+    
+    &:hover {
+        background-color: $secondary;
+        color: $accent;
+    }
+}
+
+.beer-button {
+    @include standard-button;
+    font-size: 1.5em;
+}
+
+@mixin custom-button-theme($color){
+    @include standard-button;
+    background-color: $color;
+}
+
+.secondary-beer-button {
+    @include standard-button;
+    @include custom-button-theme(purple);
+}
+
+
+
+
+
+
+
+
+
+
+@mixin my-button-theme($color, $hover-color) {
+    color: $color;
+    border-color: $color;
+    background-color: transparent;
+    
+    &:hover {
+        color: $hover-color;
+        background-color: $color;
+    }
+}

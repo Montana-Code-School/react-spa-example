@@ -9,7 +9,8 @@ var Beer = React.createClass({
         <hr className="m-y-2"/>
         <p>It uses utility classNamees for typography and spacing to space content out within the larger container.</p>
         <p className="lead">
-          <a className="btn btn-primary btn-lg" href="#" role="button">I still do NOTHING</a>
+          <a className="btn btn-lg beer-button" href="#" role="button">I still do NOTHING</a>
+          <a className="btn btn-lg secondary-beer-button" href="#" role="button">I still do NOTHING</a>
         </p>
       </div>
       )

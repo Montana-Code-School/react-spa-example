@@ -1,9 +1,8 @@
 body {
   font: 100% $main-font-stack;
-  background: get-color('accent');
+  background: $primary
 }
 
 .myContainer {
   margin-bottom: 10%
 }
-
